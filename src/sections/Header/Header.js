@@ -2,11 +2,14 @@ import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import { contextProvider } from '../../Context/Context';
 const Header = () => {
-    const name = useContext(contextProvider)
-    console.log(name.user)
+    const { user, logOut } = useContext(contextProvider)
+
+    const signOut = () => {
+        logOut();
+    }
     return (
         <div>
-            <div className="navbar bg-gray-300">
+            <div className="navbar bg-gray-500">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -49,9 +52,24 @@ const Header = () => {
                                 Blogs
                             </Link>
                         </li>
+                        {
+                            user ? <li tabIndex={0}>
+                                <Link to="/signin" onClick={signOut}>
+                                    Sign-Out
+                                </Link>
+                            </li>
+                                :
+                                <li tabIndex={0}>
+                                    <Link to="/signin">
+                                        Sign-in
+                                    </Link>
+                                </li>
+                        }
+
                         <li tabIndex={0}>
                             <Link to="/signin">
-                                Sign-in
+                                <img src={user?.photoURL} alt="" className='w-12 h-12 rounded-full' />
+                                {user?.displayName}
                             </Link>
                         </li>
                     </ul>
