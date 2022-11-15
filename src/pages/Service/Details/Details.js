@@ -13,13 +13,14 @@ const Details = () => {
         e.preventDefault();
         const form = e.target;
         const review = form.text.value;
-        const name = user?.displayName;
+        const userName = user?.displayName;
         const image = user?.photoURL;
-        console.log(review, name, image)
+        // console.log(review, name, image)
 
-        const data = {
+        const latestReview = {
             review,
-            name,
+            userName,
+            productName: name,
             image
         }
         fetch('http://localhost:5000/reviews', {
@@ -27,23 +28,28 @@ const Details = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(latestReview),
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log('Success:', data);
+                // console.log('Success:', data);
+                if (data.acknowledged) {
+                    const newReviews = [...reviews, latestReview]
+                    setReviews(newReviews)
+                }
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
+
         form.reset();
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch(`http://localhost:5000/reviews?productName=${name}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [])
+    }, [name])
 
     return (
         <div className='w-4/5 mx-auto'>
@@ -73,7 +79,7 @@ const Details = () => {
             {/* review section */}
             <div>
                 {
-                    reviews.map(rv => <Table key={rv._id} review={rv}></Table>)
+                    reviews.map((rv, index) => <Table key={rv._id} review={rv} index={index}></Table>)
                 }
             </div>
         </div>
