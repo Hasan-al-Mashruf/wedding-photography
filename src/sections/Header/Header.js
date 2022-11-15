@@ -53,25 +53,33 @@ const Header = () => {
                             </Link>
                         </li>
                         {
-                            user ? <li tabIndex={0}>
-                                <Link to="/signin" onClick={signOut}>
-                                    Sign-Out
-                                </Link>
-                            </li>
-                                :
-                                <li tabIndex={0}>
-                                    <Link to="/signin">
-                                        Sign-in
+                            user ? <>
+                                <li>
+                                    <Link to="/reviews">
+                                        My reviews
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link to="/signin" onClick={signOut}>
+                                        Sign-Out
+                                    </Link>
+                                </li>
+                                <li tabIndex={0}>
+                                    <Link>
+                                        <img src={user?.photoURL} alt="" className='w-10 h-10 rounded-full' />
+                                        {user?.displayName}
+                                    </Link>
+                                </li>
+                            </>
+                                :
+                                <>
+                                    <li tabIndex={0}>
+                                        <Link to="/signin">
+                                            Sign-in
+                                        </Link>
+                                    </li>
+                                </>
                         }
-
-                        <li tabIndex={0}>
-                            <Link to="/signin">
-                                <img src={user?.photoURL} alt="" className='w-12 h-12 rounded-full' />
-                                {user?.displayName}
-                            </Link>
-                        </li>
                     </ul>
                 </div>
                 <div className="navbar-end">

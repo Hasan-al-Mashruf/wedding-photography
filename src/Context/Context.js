@@ -11,10 +11,12 @@ const Context = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     const googleLogin = provider => {
+        setLoading(true)
         return signInWithPopup(auth, provider);
     }
 
     const githubLogin = provider => {
+        setLoading(true)
         return signInWithPopup(auth, provider);
     }
 
@@ -31,7 +33,7 @@ const Context = ({ children }) => {
         return () => unsubscribe;
     }, [])
 
-    const authInfo = { googleLogin, githubLogin, logOut, user }
+    const authInfo = { googleLogin, githubLogin, logOut, user, loading }
 
     return (
         <contextProvider.Provider value={authInfo}>

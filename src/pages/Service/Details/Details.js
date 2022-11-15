@@ -6,7 +6,7 @@ import Table from './Table/Table';
 const Details = () => {
     const service = useLoaderData()
     const { user } = useContext(contextProvider)
-    const { name, image, cat, desc, price } = service
+    let { name, image, cat, desc, price, _id } = service
     const [reviews, setReviews] = useState([])
 
     const reviewData = (e) => {
@@ -16,7 +16,6 @@ const Details = () => {
         const userName = user?.displayName;
         const image = user?.photoURL;
         // console.log(review, name, image)
-
         const latestReview = {
             review,
             userName,
