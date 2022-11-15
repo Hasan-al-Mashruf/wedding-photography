@@ -14,12 +14,33 @@ const Signin = () => {
 
     const from = location.state?.from?.pathname || "/";
 
+    //jwt token..
+    const jwtToken = (currentUser) => {
+        fetch('http://localhost:5000/jwt', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(currentUser),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                localStorage.setItem('websiteToken', data.token)
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
     //google login
     const googleUser = () => {
         googleLogin(googleProvider)
             .then((result) => {
                 const user = result.user;
-                console.log(user)
+                // console.log(user)
+                const currentUser = {
+                    user: user.email
+                }
+                jwtToken(currentUser)
                 navigate(from, { replace: true });
             }).catch((error) => console.error(error));
     }

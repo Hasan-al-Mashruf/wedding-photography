@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import { useContext, useEffect, useState } from "react";
 import { contextProvider } from "../../Context/Context";
 import Table from "../Service/Details/Table/Table";
@@ -7,7 +6,8 @@ import toast, { Toaster } from 'react-hot-toast';
 const Reviews = () => {
     const { user } = useContext(contextProvider)
     const [reviews, setReviews] = useState([])
-
+    const [newReview, setNewReview] = useState(null)
+    
     const deleteRev = (_id) => {
         fetch((`http://localhost:5000/reviews/${_id}`), {
             method: 'DELETE'
@@ -26,14 +26,14 @@ const Reviews = () => {
         fetch(`http://localhost:5000/reviews?userName=${user?.displayName}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [user?.displayName])
+    }, [user?.displayName, newReview])
 
 
 
     return (
         <div>
             {
-                reviews?.map((rv, index) => <Table key={rv._id} review={rv} index={index} deleteRev={deleteRev}></Table>)
+                reviews?.map((rv, index) => <Table key={rv._id} review={rv} index={index} deleteRev={deleteRev} setNewReview={setNewReview}></Table>)
             }
             <Toaster />
         </div>
