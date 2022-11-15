@@ -60,6 +60,11 @@ const Header = () => {
                                     </Link>
                                 </li>
                                 <li>
+                                    <Link to="/addService">
+                                        Add service
+                                    </Link>
+                                </li>
+                                <li>
                                     <Link to="/signin" onClick={signOut}>
                                         Sign-Out
                                     </Link>
