@@ -10,7 +10,7 @@ const Context = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const [header, setHeader] = useState(false);
-    
+
     const googleLogin = provider => {
         setLoading(true)
         return signInWithPopup(auth, provider);
@@ -19,6 +19,28 @@ const Context = ({ children }) => {
     const githubLogin = provider => {
         setLoading(true)
         return signInWithPopup(auth, provider);
+    }
+
+    const createUser = (email, password) => {
+        setLoading(true)
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
+
+    const login = (email, password) => {
+        setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
+    const updateName = (name, image) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: image
+        }).then(() => {
+            // Profile updated!
+            // ...
+        }).catch((error) => {
+            // An error occurred
+            // ...
+        });
     }
 
     const logOut = () => {
@@ -34,7 +56,7 @@ const Context = ({ children }) => {
         return () => unsubscribe;
     }, [])
 
-    const authInfo = { googleLogin, githubLogin, logOut, user, loading, header, setHeader }
+    const authInfo = { googleLogin, githubLogin, logOut, user, loading, createUser, updateName, login }
 
     return (
         <contextProvider.Provider value={authInfo}>

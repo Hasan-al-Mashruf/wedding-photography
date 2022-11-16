@@ -8,6 +8,7 @@ import Signin from "../pages/Sign_in/Signin";
 import Reviews from "../pages/Reviews/Reviews";
 import Secured from "../pages/Secured/Secured";
 import AddService from "../pages/AddService/AddService";
+import Register from "../pages/Register/Register";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
             { path: "/signin", element: <Signin /> },
             { path: "/reviews", element: <Secured><Reviews /></Secured> },
             { path: "/addService", element: <Secured><AddService /></Secured> },
+            { path: "/register", element: <Register></Register> },
         ]
     },
 ]);

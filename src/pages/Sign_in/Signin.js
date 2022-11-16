@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaFacebook, FaGoogle, FaGithub } from 'react-icons/fa';
 import { contextProvider } from '../../Context/Context';
@@ -8,7 +8,7 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
 const Signin = () => {
-    const { googleLogin } = useContext(contextProvider)
+    const { googleLogin, login } = useContext(contextProvider)
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -31,6 +31,27 @@ const Signin = () => {
                 console.error('Error:', error);
             });
     }
+
+    const formData = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+        login(email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                const currentUser = {
+                    user: user.email
+                }
+                jwtToken(currentUser)
+                navigate(from, { replace: true });
+                // ...
+            })
+            .catch((error) => console.error(error));
+    }
+
     //google login
     const googleUser = () => {
         googleLogin(googleProvider)
@@ -47,7 +68,7 @@ const Signin = () => {
     return (
         <div>
             <div className={'w-2/6 mx-auto'}>
-                <form className="card flex-shrink-0 w-full shadow-2xl bg-base-100 border mt-2">
+                <form className="card flex-shrink-0 w-full shadow-2xl bg-base-100 border mt-2" onSubmit={formData}>
                     <div className="card-body">
                         <div className="form-control">
                             <label className="label">

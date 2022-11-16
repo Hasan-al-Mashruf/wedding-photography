@@ -67,13 +67,14 @@ const Header = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/signin" onClick={signOut}>
-                                        Sign-Out
+                                    <Link to="/signin" onClick={logOut}>
+                                        Sign-out
                                     </Link>
                                 </li>
+
                                 <li tabIndex={0}>
                                     <Link>
-                                        <img src={user?.photoURL} alt="" className='w-10 h-10 rounded-full' />
+                                        <img src={user?.photoURL} alt="" className='w-10 h-10 rounded-full object-cover' />
                                         {user?.displayName}
                                     </Link>
                                 </li>
@@ -85,12 +86,17 @@ const Header = () => {
                                             Sign-in
                                         </Link>
                                     </li>
+                                    <li tabIndex={0}>
+                                        <Link to="/register">
+                                            Register here
+                                        </Link>
+                                    </li>
                                 </>
                         }
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn">Get started</Link>
+                    <Link to='/service' className="btn">Best services</Link>
                 </div>
             </div>
         </div>

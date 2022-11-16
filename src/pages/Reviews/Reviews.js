@@ -7,7 +7,7 @@ const Reviews = () => {
     const { user } = useContext(contextProvider)
     const [reviews, setReviews] = useState([])
     const [newReview, setNewReview] = useState(null)
-    
+
     const deleteRev = (_id) => {
         fetch((`http://localhost:5000/reviews/${_id}`), {
             method: 'DELETE'
@@ -16,7 +16,7 @@ const Reviews = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     toast.success('Review is deleted')
-                    const remainingReviews = reviews?.find(rv => rv._id !== _id)
+                    const remainingReviews = reviews?.filter(rv => rv._id !== _id)
                     setReviews(remainingReviews)
                 }
             })
@@ -35,6 +35,7 @@ const Reviews = () => {
             {
                 reviews?.map((rv, index) => <Table key={rv._id} review={rv} index={index} deleteRev={deleteRev} setNewReview={setNewReview}></Table>)
             }
+            <Toaster />
         </div>
     );
 };
