@@ -6,7 +6,7 @@ import Table from './Table/Table';
 const Details = () => {
     const service = useLoaderData()
     const { user } = useContext(contextProvider)
-    let { name, image, cat, desc, price, _id } = service
+    let { name, image, cat, desc, price } = service
     const [reviews, setReviews] = useState([])
 
     const reviewData = (e) => {

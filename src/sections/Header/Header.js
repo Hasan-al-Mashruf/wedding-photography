@@ -1,15 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { contextProvider } from '../../Context/Context';
 const Header = () => {
-    const { user, logOut } = useContext(contextProvider)
+    const { user, logOut, header, setHeader } = useContext(contextProvider)
 
     const signOut = () => {
         logOut();
     }
+
+    useEffect(() => {
+        const location = window.location.href
+        const locationLength = location.split('/')
+        if (locationLength[locationLength.length - 1] === '') {
+            console.log(100)
+            setHeader(false)
+        } else {
+            console.log(200)
+            setHeader(true)
+        }
+    }, [header, setHeader])
+
     return (
         <div>
-            <div className="navbar bg-gray-500">
+            <div className={header ? "navbar bg-gray-500  top-0 z-20" : "navbar  top-0 z-20 p-8"}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -9,7 +9,8 @@ const Context = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-
+    const [header, setHeader] = useState(false);
+    
     const googleLogin = provider => {
         setLoading(true)
         return signInWithPopup(auth, provider);
@@ -33,7 +34,7 @@ const Context = ({ children }) => {
         return () => unsubscribe;
     }, [])
 
-    const authInfo = { googleLogin, githubLogin, logOut, user, loading }
+    const authInfo = { googleLogin, githubLogin, logOut, user, loading, header, setHeader }
 
     return (
         <contextProvider.Provider value={authInfo}>

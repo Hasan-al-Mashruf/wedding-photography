@@ -1,17 +1,30 @@
 // [
 //     {
-//         "name": "Black & White",
-//         "image": "https://i.ibb.co/smqvkL0/pexels-eric-torres-3603942.jpg",
-//         "cat": "Photography"
+//         "name": "Amily Jackson",
+//         "image": "https://i.ibb.co/QfB6Cpb/pexels-andrea-piacquadio-774909.jpg",
+//         "position": "Lead photographer",
+//         "experience": "2 years",
+//         "instagram": "https://www.instagram.com/mashruff/"
 //     },
 //     {
-//         "name": "Portrait",
-//         "image": "https://i.ibb.co/q0jy46g/pexels-ash-valiente-3533228.jpg",
-//         "cat": "Portrait"
+//         "name": "Michael Clark",
+//         "image": "https://i.ibb.co/qWfKxfT/pexels-pixabay-220453.jpg",
+//         "position": "Second Shooter",
+//         "experience": "3 years",
+//         "instagram": "https://www.instagram.com/mashruff/"
 //     },
 //     {
-//         "name": "My favourites",
-//         "image": "https://i.ibb.co/kQ7b6MY/pexels-jeferson-gomes-6895533.jpg",
-//         "cat": "photography"
+//         "name": "Katrina Sweet",
+//         "image": "https://i.ibb.co/MfXvRWL/pexels-andrea-piacquadio-712513.jpg",
+//         "position": "Assistant",
+//         "experience": "1 year",
+//         "instagram": "https://www.instagram.com/mashruff/"
+//     },
+//     {
+//         "name": "Lavron Jacks",
+//         "image": "https://i.ibb.co/nz0G1gx/pexels-creation-hill-1681010.jpg",
+//         "position": "Associate shooter",
+//         "experience": "4 years",
+//         "instagram": "https://www.instagram.com/mashruff/"
 //     }
 // ]
