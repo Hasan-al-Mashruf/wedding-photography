@@ -32,7 +32,7 @@ const AddService = () => {
             .then((data) => {
                 console.log('Success:', data);
                 if (data.acknowledged) {
-                    toast.success('your update is confirmed')
+                    toast.success('New service is confirmed')
                     navigate('/service')
                 }
             })

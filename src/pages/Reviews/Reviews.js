@@ -35,7 +35,6 @@ const Reviews = () => {
             {
                 reviews?.map((rv, index) => <Table key={rv._id} review={rv} index={index} deleteRev={deleteRev} setNewReview={setNewReview}></Table>)
             }
-            <Toaster />
         </div>
     );
 };

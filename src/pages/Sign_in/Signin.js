@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext} from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaFacebook, FaGoogle, FaGithub } from 'react-icons/fa';
 import { contextProvider } from '../../Context/Context';
@@ -44,10 +44,9 @@ const Signin = () => {
                 navigate(from, { replace: true });
             }).catch((error) => console.error(error));
     }
-
     return (
         <div>
-            <div className='w-2/6 mx-auto'>
+            <div className={'w-2/6 mx-auto'}>
                 <form className="card flex-shrink-0 w-full shadow-2xl bg-base-100 border mt-2">
                     <div className="card-body">
                         <div className="form-control">

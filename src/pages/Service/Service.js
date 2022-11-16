@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { contextProvider } from '../../Context/Context';
 import Card from './Card/Card';
 
+
 const Service = ({ size }) => {
     const [service, setService] = useState([])
     const { logOut } = useContext(contextProvider)
