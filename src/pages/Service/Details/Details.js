@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useLoaderData} from 'react-router-dom';
 import { contextProvider } from '../../../Context/Context';
 import Table from './Table/Table';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Details = () => {
     const service = useLoaderData()
     const { user } = useContext(contextProvider)
     let { name, image, cat, desc, price } = service
     const [reviews, setReviews] = useState([])
-    const navigate = useNavigate();
     const reviewData = (e) => {
         e.preventDefault();
         if (user) {
@@ -44,7 +44,7 @@ const Details = () => {
                 });
             form.reset();
         } else {
-            navigate('/signin')
+            toast.success('plz login to add a review')
         }
     }
 
@@ -90,6 +90,7 @@ const Details = () => {
                     reviews.map((rv, index) => <Table key={rv._id} review={rv} index={index}></Table>)
                 }
             </div>
+            <Toaster />
         </div>
 
     );

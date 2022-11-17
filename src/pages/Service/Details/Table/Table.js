@@ -6,7 +6,7 @@ import PopUp from '../../../PopUp/PopUp';
 const Table = ({ review, index, deleteRev, setNewReview }) => {
     const [reviewId, setReviewId] = useState(null)
     const [display, setDisplay] = useState(false)
-    const { name, image, _id, userName } = review;
+    const { productName, image, _id, userName } = review;
     console.log(review)
     useEffect(() => {
         const location = window.location.href;
@@ -26,7 +26,7 @@ const Table = ({ review, index, deleteRev, setNewReview }) => {
                     <tbody>
                         <tr>
                             <th>{index + 1}</th>
-                            <td>{name}</td>
+                            <td>{productName}</td>
                             <td>{review.review}</td>
                             <td>
                                 <img src={image} alt="" className='w-14 h-14 rounded object-cover' />

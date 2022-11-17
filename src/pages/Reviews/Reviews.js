@@ -32,9 +32,12 @@ const Reviews = () => {
 
     return (
         <div>
+
             {
-                reviews?.map((rv, index) => <Table key={rv._id} review={rv} index={index} deleteRev={deleteRev} setNewReview={setNewReview}></Table>)
+                reviews?.length !== 0 ? reviews?.map((rv, index) => <Table key={rv._id} review={rv} index={index} deleteRev={deleteRev} setNewReview={setNewReview}></Table>) : <div className="flex items-center justify-center h-screen"><h2 className="text-4xl">You did't add any reviews yet</h2></div>
             }
+
+
             <Toaster />
         </div>
     );
