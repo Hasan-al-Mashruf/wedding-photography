@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { contextProvider } from "../../Context/Context";
 import Table from "../Service/Details/Table/Table";
 import toast, { Toaster } from 'react-hot-toast';
-import { Navigate } from "react-router-dom";
 
 const Reviews = () => {
     const { user, logOut } = useContext(contextProvider)
@@ -32,8 +31,7 @@ const Reviews = () => {
             .then(res => {
                 if (res.status === 401 || res.status === 403) {
                     localStorage.removeItem('websiteToken')
-                    logOut();
-                    return;
+                    return logOut()
                 }
                 return res.json()
             })
