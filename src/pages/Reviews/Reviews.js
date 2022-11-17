@@ -9,7 +9,7 @@ const Reviews = () => {
     const [newReview, setNewReview] = useState(null)
 
     const deleteRev = (_id) => {
-        fetch((`http://localhost:5000/reviews/${_id}`), {
+        fetch((`https://wedding-wesite-server.vercel.app/reviews/${_id}`), {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -23,7 +23,7 @@ const Reviews = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?userName=${user?.displayName}`)
+        fetch(`https://wedding-wesite-server.vercel.app/reviews?userName=${user?.displayName}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [user?.displayName, newReview])

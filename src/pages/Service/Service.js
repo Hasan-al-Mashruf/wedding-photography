@@ -8,7 +8,7 @@ const Service = ({ size }) => {
     const [service, setService] = useState([])
     const { logOut } = useContext(contextProvider)
     useEffect(() => {
-        fetch(`http://localhost:5000/collections?size=${size}`, {
+        fetch(`https://wedding-wesite-server.vercel.app/collections?size=${size}`, {
             headers: {
                 authorizations: `Bearer ${localStorage.getItem('websiteToken')}`
             }
