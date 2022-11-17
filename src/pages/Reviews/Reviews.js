@@ -4,12 +4,12 @@ import Table from "../Service/Details/Table/Table";
 import toast, { Toaster } from 'react-hot-toast';
 
 const Reviews = () => {
-    const { user, logOut } = useContext(contextProvider)
+    const { user} = useContext(contextProvider)
     const [reviews, setReviews] = useState([])
     const [newReview, setNewReview] = useState(null)
 
     const deleteRev = (_id) => {
-        fetch((`http://localhost:5000/reviews/${_id}`), {
+        fetch((`https://wedding-wesite-server.vercel.app/reviews/${_id}`), {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -23,23 +23,14 @@ const Reviews = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?userName=${user?.displayName}`, {
-            headers: {
-                authorizations: `Bearer ${localStorage.getItem('websiteToken')}`
-            }
+        fetch(`https://wedding-wesite-server.vercel.app/reviews?userName=${user?.displayName}`, {
+
         })
-            .then(res => {
-                if (res.status === 401 || res.status === 403) {
-                    localStorage.removeItem('websiteToken')
-                    return logOut()
-                }
-                return res.json()
-            })
+            .then(res => res.json())
             .then(data => {
                 setReviews(data)
             })
-    }, [user?.displayName, newReview, logOut])
-    console.log(reviews)
+    }, [user?.displayName, newReview])
     return (
         <div>
 

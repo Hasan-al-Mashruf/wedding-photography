@@ -24,7 +24,7 @@ const Details = () => {
                 productName: name,
                 image
             }
-            fetch('http://localhost:5000/reviews', {
+            fetch('https://wedding-wesite-server.vercel.app/reviews', {
                 method: 'POST', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const Details = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?productName=${name}`)
+        fetch(`https://wedding-wesite-server.vercel.app/reviews?productName=${name}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [name])

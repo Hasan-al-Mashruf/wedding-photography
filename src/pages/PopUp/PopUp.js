@@ -5,7 +5,7 @@ const PopUp = ({ reviewId, setReviewId, setNewReview }) => {
         e.preventDefault();
         const review = e.target.text.value;
         e.target.reset();
-        fetch(`http://localhost:5000/reviews/${reviewId}`, {
+        fetch(`https://wedding-wesite-server.vercel.app/reviews/${reviewId}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

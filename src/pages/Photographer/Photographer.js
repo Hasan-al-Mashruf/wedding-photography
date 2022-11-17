@@ -5,7 +5,7 @@ const Photographer = () => {
     const [members, setMember] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/member')
+        fetch('https://wedding-wesite-server.vercel.app/member')
             .then(res => res.json())
             .then(data => setMember(data))
     }, [])

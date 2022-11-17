@@ -1,18 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { contextProvider } from '../../Context/Context';
 import Card from './Card/Card';
 
 
 const Service = ({ size }) => {
     const [service, setService] = useState([])
-    const { logOut } = useContext(contextProvider)
     useEffect(() => {
-        fetch(`http://localhost:5000/collections?size=${size}`)
+        fetch(`https://wedding-wesite-server.vercel.app/collections?size=${size}`)
             .then(res => res.json())
             .then(data => setService(data))
-    }, [size, logOut])
-    
+    }, [size])
+
     return (
         <div className='p-16'>
             <div className={size !== 3 ? 'hidden' : 'pb-8'}>

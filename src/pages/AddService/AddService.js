@@ -21,7 +21,7 @@ const AddService = () => {
         console.log(latestServices)
 
 
-        fetch('http://localhost:5000/collections', {
+        fetch('https://wedding-wesite-server.vercel.app/collections', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

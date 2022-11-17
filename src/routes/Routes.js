@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
             { path: "/blog", element: <Blog /> },
             {
                 path: "/details/:id",
-                loader: ({ params }) => fetch(`http://localhost:5000/collections/${params.id}`),
+                loader: ({ params }) => fetch(`https://wedding-wesite-server.vercel.app/collections/${params.id}`),
                 element: <Details />
             },
             { path: "/signin", element: <Signin /> },
