@@ -21,7 +21,7 @@ const AddService = () => {
         console.log(latestServices)
 
 
-        fetch('https://wedding-wesite-server.vercel.app/collections', {
+        fetch('http://localhost:5000/collections', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -54,25 +54,25 @@ const AddService = () => {
                                 <label className="label">
                                     <span className="label-text">Service Name</span>
                                 </label>
-                                <input type="text" placeholder="service name" className="input input-bordered rounded-sm" name='service' required/>
+                                <input type="text" placeholder="service name" className="input input-bordered rounded-sm" name='service' required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Price</span>
                                 </label>
-                                <input type="text" placeholder="price" className="input input-bordered rounded-sm" name='price' required/>
+                                <input type="text" placeholder="price" className="input input-bordered rounded-sm" name='price' required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Catagroy Name</span>
                                 </label>
-                                <input type="text" placeholder="Category" className="input input-bordered rounded-sm" name='category' required/>
+                                <input type="text" placeholder="Category" className="input input-bordered rounded-sm" name='category' required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Image url</span>
                                 </label>
-                                <input type="text" placeholder="image" className="input input-bordered rounded-sm" name='image' required/>
+                                <input type="text" placeholder="image" className="input input-bordered rounded-sm" name='image' required />
                             </div>
                             <div className="form-control">
                                 <label className="label">

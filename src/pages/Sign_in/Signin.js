@@ -16,7 +16,7 @@ const Signin = () => {
 
     //jwt token..
     const jwtToken = (currentUser) => {
-        fetch('https://wedding-wesite-server.vercel.app/jwt', {
+        fetch('http://localhost:5000/jwt', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

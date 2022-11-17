@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# Wedding website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was functionalized using Mern tech
 
-## Available Scripts
+##  Website details
 
-In the project directory, you can run:
+Live link
 
 ### `npm start`
 

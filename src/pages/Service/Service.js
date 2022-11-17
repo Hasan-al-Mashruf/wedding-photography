@@ -8,22 +8,11 @@ const Service = ({ size }) => {
     const [service, setService] = useState([])
     const { logOut } = useContext(contextProvider)
     useEffect(() => {
-        fetch(`https://wedding-wesite-server.vercel.app/collections?size=${size}`, {
-            headers: {
-                authorizations: `Bearer ${localStorage.getItem('websiteToken')}`
-            }
-        })
-            .then(res => {
-                if (res.status === 401 || res.status === 403) {
-                    logOut()
-                        .then(() => {
-                            // Sign-out successful.
-                        }).catch((err) => console.error(err))
-                }
-                return res.json()
-            })
+        fetch(`http://localhost:5000/collections?size=${size}`)
+            .then(res => res.json())
             .then(data => setService(data))
     }, [size, logOut])
+    
     return (
         <div className='p-16'>
             <div className={size !== 3 ? 'hidden' : 'pb-8'}>

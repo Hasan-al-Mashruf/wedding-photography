@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData} from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import { contextProvider } from '../../../Context/Context';
 import Table from './Table/Table';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
@@ -24,7 +24,7 @@ const Details = () => {
                 productName: name,
                 image
             }
-            fetch('https://wedding-wesite-server.vercel.app/reviews', {
+            fetch('http://localhost:5000/reviews', {
                 method: 'POST', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const Details = () => {
 
 
     useEffect(() => {
-        fetch(`https://wedding-wesite-server.vercel.app/reviews?productName=${name}`)
+        fetch(`http://localhost:5000/reviews?productName=${name}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [name])
