@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { contextProvider } from '../../Context/Context';
 
 const Register = () => {
@@ -53,7 +53,7 @@ const Register = () => {
                         </label>
                         <input type="text" placeholder="password" className="input input-bordered" name='password' />
                         <label className="label">
-                            <a href="/" className="label-text-alt link link-hover">if your are already registered plz logn here</a>
+                            <p className='text-sm'>If your are already registered plz <Link to='/signin' className='text-secondary font-bold'>login here</Link></p>
                         </label>
                     </div>
                     <div className="form-control mt-6 text-center">

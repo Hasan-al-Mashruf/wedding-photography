@@ -37,9 +37,9 @@ const Banner = () => {
                         <img src="https://i.ibb.co/dLbjCnQ/pexels-fotosel-foto-raf-l-k-13682047.jpg" alt="" />
                     </SwiperSlide>
                 </Swiper>
-                <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-white z-20 w-1/2 text-center">
+                <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-white z-20 md:w-1/2 w-5/6 text-center">
                     <h2 className="text-5xl">Wedding <span className="text-secondary">Photography</span></h2>
-                    <p className="pt-6 pb-3 text-gray-300">In publishing and graphic design, 'Wedding photography' is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. 'Wedding photography' may be used as a placeholder before final copy is available.</p>
+                    <p className="pt-6 pb-3 text-gray-300">In publishing and graphic design, 'Wedding photography' is a placeholder text commonly used to demonstrate <span className="hidden md:inline"> the visual form of a document or a typeface without relying on meaningful content. 'Wedding photography' may be used as a placeholder before final copy is available.</span></p>
                     <Link to='/service'>
                         <button className="btn btn-secondary border-2">View all the services</button>
                     </Link>

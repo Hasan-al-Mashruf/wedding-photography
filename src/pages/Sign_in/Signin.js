@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaFacebook, FaGoogle, FaGithub } from 'react-icons/fa';
 import { contextProvider } from '../../Context/Context';
-import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const googleProvider = new GoogleAuthProvider();
-const githubProvider = new GithubAuthProvider();
+
 
 const Signin = () => {
     const { googleLogin, login } = useContext(contextProvider)
@@ -67,7 +67,7 @@ const Signin = () => {
     }
     return (
         <div>
-            <div className={'w-2/6 mx-auto'}>
+            <div className='md:w-2/6 w-5/6 mx-auto'>
                 <form className="card flex-shrink-0 w-full shadow-2xl bg-base-100 border mt-2" onSubmit={formData}>
                     <div className="card-body">
                         <div className="form-control">
@@ -89,9 +89,12 @@ const Signin = () => {
                             <input type="submit" value="Login" className='btn btn-primary' />
                             <div className="divider">OR</div>
                             <div className='social-icon flex justify-center pt-5'>
-                                <a href="/" className='mx-2 text-xl'><FaFacebook /></a>
-                                <Link onClick={googleUser} href="/" className='mx-2 text-xl'><FaGoogle /></Link>
-                                <Link href="/" className='mx-2 text-xl'><FaGithub /></Link>
+                                <Link onClick={googleUser} href="/" className='mx-2 text-xl'>
+                                    <button className="btn gap-2">
+                                        <FaGoogle />
+                                        Google Login
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

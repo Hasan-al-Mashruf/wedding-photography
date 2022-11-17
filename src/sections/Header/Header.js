@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import { contextProvider } from '../../Context/Context';
 const Header = () => {
-    const { user, logOut, header, setHeader } = useContext(contextProvider)
+    const { user, logOut, } = useContext(contextProvider)
 
     const signOut = () => {
         logOut();
@@ -33,6 +33,45 @@ const Header = () => {
                                     Blogs
                                 </Link>
                             </li>
+                            {
+                                user ? <>
+                                    <li>
+                                        <Link to="/reviews">
+                                            My reviews
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/addService">
+                                            Add service
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/signin" onClick={signOut}>
+                                            Sign-out
+                                        </Link>
+                                    </li>
+
+                                    <li tabIndex={0}>
+                                        <Link>
+                                            <img src={user?.photoURL} alt="" className='w-10 h-10 rounded-full object-cover' />
+                                            {user?.displayName}
+                                        </Link>
+                                    </li>
+                                </>
+                                    :
+                                    <>
+                                        <li tabIndex={0}>
+                                            <Link to="/signin">
+                                                Sign-in
+                                            </Link>
+                                        </li>
+                                        <li tabIndex={0}>
+                                            <Link to="/register">
+                                                Register here
+                                            </Link>
+                                        </li>
+                                    </>
+                            }
                         </ul>
                     </div>
                     <Link className="btn btn-ghost normal-case text-xl text-white">Wedding Photography </Link>
@@ -67,7 +106,7 @@ const Header = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/signin" onClick={logOut}>
+                                    <Link to="/signin" onClick={signOut}>
                                         Sign-out
                                     </Link>
                                 </li>

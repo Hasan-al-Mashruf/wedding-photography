@@ -16,7 +16,7 @@ const Photographer = () => {
                 <h2 className='text-center text-4xl'>Team members</h2>
                 <div className='w-24 h-2 bg-secondary mt-4 mx-auto'></div>
             </div>
-            <div className='grid grid-cols-4'>
+            <div className='grid md:grid-cols-4 gap-5'>
                 {
                     members.map(member => <Card key={member._id} member={member}></Card>)
                 }

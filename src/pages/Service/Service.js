@@ -15,7 +15,10 @@ const Service = ({ size }) => {
         })
             .then(res => {
                 if (res.status === 401 || res.status === 403) {
-                    logOut();
+                    logOut()
+                        .then(() => {
+                            // Sign-out successful.
+                        }).catch((err) => console.error(err))
                 }
                 return res.json()
             })
@@ -28,12 +31,12 @@ const Service = ({ size }) => {
                 <div className='w-24 h-2 bg-secondary mt-4 mx-auto'></div>
             </div>
 
-            <div className='grid grid-cols-3 gap-5 py-10'>
+            <div className='grid md:grid-cols-3 grid-cols-1 gap-5 py-10'>
                 {
                     service?.map(dt => <Card key={dt._id} service={dt}></Card>)
                 }
             </div>
-            <div className='text-end'>
+            <div className='md:text-end text-center'>
                 <Link to='/service'>
                     <button className={size !== 3 ? 'hidden' : 'btn btn-wide btn-secondary font-bold '}>All services</button>
                 </Link>

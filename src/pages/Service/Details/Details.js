@@ -57,7 +57,7 @@ const Details = () => {
 
     return (
         <div className='w-4/5 mx-auto'>
-            <div className='border-2 p-8 grid grid-cols-2 gap-5 text-left'>
+            <div className='border-2 p-8 grid md:grid-cols-2 gap-5 text-left'>
                 <div className='cursor-pointer'>
                     <PhotoProvider>
                         <PhotoView src={image}>
@@ -73,7 +73,7 @@ const Details = () => {
                 </div>
             </div>
             {/* input section */}
-            <div className='w-3/5 mx-auto my-10'>
+            <div className='md:w-3/5 mx-auto my-10'>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Plz login first</span>

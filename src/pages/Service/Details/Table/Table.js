@@ -20,18 +20,18 @@ const Table = ({ review, index, deleteRev, setNewReview }) => {
 
     }, [])
     return (
-        <div className="w-3/5 mx-auto border">
+        <div className="md:w-3/5 mx-auto border">
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     <tbody>
                         <tr>
                             <th>{index + 1}</th>
                             <td>{name}</td>
-                            <td className='w-3/6'>{review.review}</td>
+                            <td>{review.review}</td>
                             <td>
-                                <img src={image} alt="" className='w-14 h-14 rounded' />
+                                <img src={image} alt="" className='w-14 h-14 rounded object-cover' />
                             </td>
-                            <td>
+                            <td className='md:block hidden'>
                                 {
                                     userName
                                 }

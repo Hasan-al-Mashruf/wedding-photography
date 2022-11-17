@@ -2,8 +2,8 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div className='w-3/4 mx-auto h-screen pt-20'>
-            <div className='grid grid-cols-2 gap-5'>
+        <div className='w-3/4 mx-auto min-h-screen pt-20'>
+            <div className='grid md:grid-cols-2 gap-5'>
                 <div tabIndex={0} className="collapse collapse-open border border-base-300 bg-base-100 rounded-box">
                     <div className="collapse-title text-xl font-medium">
                         Difference between SQL and NoSQL

@@ -1,5 +1,4 @@
 import React from 'react';
-import image from '../../../src/line.png'
 const ContactUs = () => {
     return (
         <div className='py-10'>
