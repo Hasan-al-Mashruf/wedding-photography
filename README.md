@@ -16,7 +16,7 @@ Vercel, mongodb
 
 ### `Ensured features`
 
-**You can give ultimate reviews nad look for other reviesw**
+**You can give ultimate reviews and look for other reviews as wll**
 **Firebase tech is used to ensure your login data**
 **User, himself can add a service or function**
-**Beautiful desig , speed customizations, and so on**
+**Beautiful design , speed customizations, and so on**
