@@ -1,4 +1,4 @@
-# Review base Wedding website
+# Wedding website - focus on review
 
 This project was functionalized using Mern tech
 
